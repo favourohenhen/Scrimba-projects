@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passenger Counter App</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Passenger Counter</h1>
+      <p id="count-el">0</p>
+
+      <div class="btn-container">
+        <button class="button-increase" id="increment" onclick="increment()" aria-label="Increase passenger count">
+        +1
+      </button>
+      <button class="button-save" id="save-btn" onclick="save()">SAVE</button>
+      <button class="button-decrease" id="decrement" onclick="decrement()" aria-label="Decrease passenger count">-1</button>
+      </div>
+      
+      <p class="save-entries" id="save-el">Previous Entries: </p>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
