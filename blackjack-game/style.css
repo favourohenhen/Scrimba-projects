@@ -9,11 +9,8 @@
 
 body {
   font-family: "Trebuchet MS", sans-serif;
-  background-image: url(./table.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
+  background: #007a3d url("./table.png") center / cover no-repeat;
+  
   min-height: 100dvh;
   width: 100%;
 
