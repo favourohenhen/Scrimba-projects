@@ -5,21 +5,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
 body {
   font-family: "Trebuchet MS", sans-serif;
   background-image: url(./table.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 500px;
+
+  min-height: 100dvh;
+  width: 100%;
+
   display: grid;
   font-weight: bold;
   text-align: center;
   color: white;
-  min-height: 100dvh;
-  width: 100%;
 }
-
 .card {
   display: flex;
   justify-content: center;
@@ -28,11 +30,10 @@ body {
   gap: 1.25em;
   padding: 1em 1.2em;
   width: 100%;
-  min-height: 100dvh;
 }
 h1 {
   color: goldenrod;
-  font-size: 5rem;
+ font-size: 3.5rem;
   /* text-transform: uppercase; */
 }
 
