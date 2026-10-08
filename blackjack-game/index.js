@@ -6,6 +6,7 @@ let cards = []
 let sum = 0
 let hasBlackJack = false
 let isAlive = false
+let gameStarted = false
 let message = ""
 
 const messageEl = document.getElementById("message-el")
@@ -27,13 +28,22 @@ function randomNumber() {
 
 }
 function startGame() {
-    isAlive = true
-    hasBlackJack = false
-    let firstCard = randomNumber()
-    let secondCard = randomNumber()
-    cards = [firstCard, secondCard]
-    sum = firstCard + secondCard
-    renderGame()
+    
+    if (gameStarted === false) {
+        gameStarted = true
+        isAlive = true
+        hasBlackJack = false
+        let firstCard = randomNumber()
+        let secondCard = randomNumber()
+        cards = [firstCard, secondCard]
+        sum = firstCard + secondCard
+        renderGame()
+    }
+
+    // console.log("gameStarted", gameStarted)
+    // console.log("isAlive:", isAlive)
+    // console.log("hasBlackJack:", hasBlackJack)
+
 }
 function renderGame() {
     cardEl.textContent = "Cards: "
@@ -79,6 +89,7 @@ function newCard() {
 function restartGame() {
     isAlive = false
     hasBlackJack = false
+    gameStarted = false
     cards = []
     sum = 0
     console.log(cards)
