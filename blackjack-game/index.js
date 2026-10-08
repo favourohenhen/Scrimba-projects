@@ -1,6 +1,6 @@
-let player ={
-    name : "Chips",
-    chips : 0
+let player = {
+    name: "Chips",
+    chips: 0
 }
 let cards = []
 let sum = 0
@@ -28,6 +28,7 @@ function randomNumber() {
 }
 function startGame() {
     isAlive = true
+    hasBlackJack = false
     let firstCard = randomNumber()
     let secondCard = randomNumber()
     cards = [firstCard, secondCard]
@@ -58,10 +59,34 @@ function renderGame() {
 function newCard() {
     if (isAlive === true && hasBlackJack === false) {
         let card = randomNumber()
+
+        console.log("New card:", card)
+
         sum += card
         cards.push(card)
+
+        console.log("New sum:", sum)
+        console.log("Cards:", cards)
+
         renderGame()
-        console.log("Do you want to draw another card?")
+
+        console.log("isAlive:", isAlive)
+        console.log("hasBlackJack:", hasBlackJack)
     }
+
+}
+
+function restartGame() {
+    isAlive = false
+    hasBlackJack = false
+    cards = []
+    sum = 0
+    console.log(cards)
+
+    console.log(sum)
+    cardEl.textContent = "Cards: "
+    sumEl.textContent = "Sum: "
+    message = "Want to play a round?"
+    messageEl.textContent = message
 
 }
