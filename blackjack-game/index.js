@@ -60,18 +60,18 @@ function newCard() {
     if (isAlive === true && hasBlackJack === false) {
         let card = randomNumber()
 
-        console.log("New card:", card)
+        // console.log("New card:", card)
 
         sum += card
         cards.push(card)
 
-        console.log("New sum:", sum)
-        console.log("Cards:", cards)
+        // console.log("New sum:", sum)
+        // console.log("Cards:", cards)
 
         renderGame()
 
-        console.log("isAlive:", isAlive)
-        console.log("hasBlackJack:", hasBlackJack)
+        // console.log("isAlive:", isAlive)
+        // console.log("hasBlackJack:", hasBlackJack)
     }
 
 }
