@@ -1,12 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dice Game🎲</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Game 🎲</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-container">
+      <header>
+        <section class="game-head">
+          <h1 class="game-title">Dice Game</h1>
+          <p id="rounds">0 of 5 rounds played</p>
+        </section>
+        <p class="game-information">
+          Higher roll wins a point. Best score after five rounds wins.
+        </p>
+      </header>
+
+      <section class="player-container">
+        <section class="player">
+          <div class="dice">
+            <p id="user-el" class="dice-number">0</p>
+          </div>
+        </section>
+        <section class="player">
+          <div class="dice">
+            <p id="computer-el" class="dice-number">0</p>
+          </div>
+        </section>
+      </section>
+      <section class="play-buttons">
+        <button onclick="rollDice()">ROLL DICE</button>
+        <button onclick="restart()">RESTART</button>
+      </section>
+      <section class="game-history">
+        <p>Game History</p>
+      </section>
+    </main>
+
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
