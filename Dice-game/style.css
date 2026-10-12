@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 *,
 *::before,
 *::after {
@@ -6,24 +7,44 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-button: "Space Grotesk", sans-serif;
+  --font-text: "Bungee", sans-serif;
+}
 body {
   display: grid;
   place-content: center;
   height: 100dvh;
   width: 100%;
-  padding-inline: 1.5em;
+  padding-inline: 1.2em;
+  font-family: var(--font-text);
+  background-image: url(./Dice\ Chess.jpg);
+  background-position: center;
+  width: 100%;
+  height: 100dvh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .game-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.59em;
-  padding: 0.89em;
-  background-color: rgb(80, 48, 161);
+  padding: 0.8em;
+  background-color: rgba(0, 0, 0, 0.468);
+  border: 5px white solid;
   color: white;
   border-radius: 12px;
   overflow: hidden;
-  /* width: min(100%, 1200px); */
+  
+}
+h1 {
+  color: var(--head-text);
+  text-transform: uppercase;
+  font-family: var(--font-button);
+}
+#rounds {
+  font-style: italic;
 }
 header {
   display: flex;
@@ -32,6 +53,7 @@ header {
 }
 .game-head {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
@@ -47,16 +69,17 @@ header {
 .player {
   width: min(70%, 1000px);
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.248);
+  border: 2px white solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5em;
   border-radius: 10px;
 }
 .dice {
-  background-color: rgba(250, 250, 250, 0.97);
-  
+  background-color: white;
+
   width: min(50%, 1200px);
   height: 80px;
   display: flex;
@@ -64,26 +87,37 @@ header {
   align-items: center;
   border-radius: 10px;
 }
-.play-buttons{
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    align-items: center;
+.play-buttons {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px white solid;
+  padding-bottom: 1em;
 }
-.dice-number{
-    font-size: 2em;
-    color: black;
+.dice-number {
+  font-size: 3em;
+  color: black;
+  font-family: var(--player);
 }
-button{
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    border: none;
+button {
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  font-family: var(--font-button);
 }
-.player-details{
+.player-details {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.player-name{
+.player-name {
   text-align: center;
 }
+#message-el {
+  text-align: center;
+  font-style: italic;
+}
+
