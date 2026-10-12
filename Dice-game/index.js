@@ -6,7 +6,7 @@ let players = {
 
 }
 
-// Html doc taken by javascipt
+
 let userEl = document.getElementById("user-el")
 let computerEl = document.getElementById("computer-el")
 let countEl = document.getElementById("count-el")
