@@ -19,7 +19,7 @@ player2El.textContent = players.name2 + ": " + players.point2
 let userDice = 0
 let computerDice = 0
 let rollCount = 0
-let gameStart = false
+
 
 
 
