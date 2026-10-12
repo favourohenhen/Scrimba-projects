@@ -21,9 +21,12 @@ let computerDice = 0
 let rollCount = 0
 let gameStart = false
 
+
+
+// GAME MAIN LOGIC
+
 function rollDice() {
     if (rollCount <= 4) {
-
         userDice = Math.floor(Math.random() * 6) + 1
         console.log(userDice)
 
@@ -35,24 +38,19 @@ function rollDice() {
         rollCount += 1
         countEl.textContent = rollCount
         renderGame()
-
-       
-
-
     } else {
         console.log("Game Over")
-         rollBtn.disabled = true
+        rollBtn.disabled = true
     }
 
-    // player1El.point1.textContent = point1
-    // player2El.point2.textContent = computerWon
+    
 
 }
 
 function renderGame() {
     if (userDice > computerDice) {
         console.log("You won")
-return point1
+     
     } else if (computerDice > userDice) {
         console.log("Computer won")
 
@@ -73,10 +71,10 @@ function restart() {
     rollCount = 0
     countEl.textContent = rollCount
 
-     rollBtn.disabled = false
+    rollBtn.disabled = false
 }
 
 
 
-// GAME MAIN LOGIC
+
 
