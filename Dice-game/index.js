@@ -10,6 +10,7 @@ let computerEl = document.getElementById("computer-el")
 let countEl = document.getElementById("count-el")
 let player1El = document.getElementById("player1-el")
 let player2El = document.getElementById("player2-el")
+let rollBtn = document.getElementById("rollbtn")
 
 player1El.textContent = players.name1 + ": " + players.point1
 player2El.textContent = players.name2 + ": " + players.point2
@@ -21,10 +22,6 @@ let rollCount = 0
 let gameStart = false
 
 function rollDice() {
-
-    // console.log(rollCount)
-
-
     if (rollCount <= 4) {
 
         userDice = Math.floor(Math.random() * 6) + 1
@@ -39,19 +36,23 @@ function rollDice() {
         countEl.textContent = rollCount
         renderGame()
 
+       
+
+
     } else {
         console.log("Game Over")
+         rollBtn.disabled = true
     }
 
-    player1El.point1.textContent = userWon
-    player2El.point2.textContent = computerWon
+    // player1El.point1.textContent = point1
+    // player2El.point2.textContent = computerWon
 
 }
 
 function renderGame() {
     if (userDice > computerDice) {
         console.log("You won")
-
+return point1
     } else if (computerDice > userDice) {
         console.log("Computer won")
 
@@ -70,6 +71,9 @@ function restart() {
     computerEl.textContent = computerDice
 
     rollCount = 0
+    countEl.textContent = rollCount
+
+     rollBtn.disabled = false
 }
 
 
