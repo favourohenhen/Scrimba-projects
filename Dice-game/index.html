@@ -11,7 +11,7 @@
       <header>
         <section class="game-head">
           <h1 class="game-title">Dice Game</h1>
-          <p id="rounds">0 of 5 rounds played</p>
+          <p id="rounds"><span id="count-el">0</span> of 5 rounds played</p>
         </section>
         <p class="game-information">
           Higher roll wins a point. Best score after five rounds wins.
@@ -21,15 +21,20 @@
       <section class="player-container">
         <section class="player">
           <div class="dice">
-            <p id="user-el" class="dice-number">0</p>
+            <p id="user-el" class="dice-number">-</p>
           </div>
         </section>
         <section class="player">
           <div class="dice">
-            <p id="computer-el" class="dice-number">0</p>
+            <p id="computer-el" class="dice-number">-</p>
           </div>
         </section>
       </section>
+      <div class="player-details">
+        <p id="player1-el" class="player-name"></p>
+        <p id="player2-el" class="player-name"></p>
+      </div>
+
       <section class="play-buttons">
         <button onclick="rollDice()">ROLL DICE</button>
         <button onclick="restart()">RESTART</button>

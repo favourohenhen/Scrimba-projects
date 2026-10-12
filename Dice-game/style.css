@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2em;
+  gap: 1.59em;
   padding: 0.89em;
   background-color: rgb(80, 48, 161);
   color: white;
@@ -71,11 +71,19 @@ header {
     align-items: center;
 }
 .dice-number{
-    font-size: 1.3em;
+    font-size: 2em;
     color: black;
 }
 button{
     padding: 0.5em 1em;
     border-radius: 5px;
     border: none;
+}
+.player-details{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.player-name{
+  text-align: center;
 }
