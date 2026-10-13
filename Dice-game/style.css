@@ -126,7 +126,7 @@ button {
   flex-direction: column;
   align-content: center;
   gap: 1em;
-  color: red;
+  color: white;
 }
 .round-card{
   display: flex;

@@ -41,28 +41,43 @@ console.log(roundWinner)
 
 function numberOfRounds() {
     let roundLabels = ["Round 1", "Round 2", "Round 3", "Round 4", "Round 5"]
+    let diceValue = [userDice, computerDice]
+
     for (let i = 0; i < roundLabels.length; i++) {
         if (rollCount === 1 && roundLabels[i] === "Round 1") {
             roundNumber[i].textContent = roundLabels[i]
+            roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
+            console.log(roundDice[i].textContent)
             console.log(roundNumber[i].textContent)
         }
         else if (rollCount === 2 && roundLabels[i] === "Round 2") {
             roundNumber[i].textContent = roundLabels[i]
-            console.log(roundNumber.textContent)
+            roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
+            console.log(roundDice[i].textContent)
+            console.log(roundNumber[i].textContent)
         }
         else if (rollCount === 3 && roundLabels[i] === "Round 3") {
             roundNumber[i].textContent = roundLabels[i]
+            roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
+            console.log(roundDice[i].textContent)
             console.log(roundNumber[i].textContent)
         }
         else if (rollCount === 4 && roundLabels[i] === "Round 4") {
             roundNumber[i].textContent = roundLabels[i]
+            roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
+            console.log(roundDice[i].textContent)
             console.log(roundNumber[i].textContent)
         }
         else if (rollCount === 5 && roundLabels[i] === "Round 5") {
             roundNumber[i].textContent = roundLabels[i]
+            roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
+            console.log(roundDice[i].textContent)
             console.log(roundNumber[i].textContent)
         }
     }
+
+
+
 }
 
 // roundNumber.textContent = roundNumber[2]
@@ -90,6 +105,9 @@ function rollDice() {
         // Roll dice disable when count is 5
         rollBtn.disabled = rollCount >= 5
 
+        // roundDice.textContent = diceValue[0] + " VS " + diceValue[1]
+        // console.log(diceValue)
+        // console.log(roundDice.textContent)
 
     } else {
         console.log("Game Over")
@@ -98,31 +116,35 @@ function rollDice() {
     numberOfRounds()
 }
 
+
+
 function renderGame() {
+
     let eachRoundWinner =
         ["You win this round",
             "Computer wins this round",
             "Nobody wins this round"]
-
+    //  let winnerRecord = [eachRoundWinner]
+    //     console.log(winnerRecord)
 
     for (let i = 0; i < eachRoundWinner.length; i++) {
 
         if (userDice > computerDice && eachRoundWinner[i] === "You win this round") {
             messageEl.textContent = "You won"
             players.score1 += 1
-            eachRoundWinner.textContent = "You win this round"
-            console.log(eachRoundWinner.textContent)
+            roundWinner[rollCount-1].textContent = "You win this round"
+            console.log(roundWinner[i].textContent)
 
         } else if (computerDice > userDice && eachRoundWinner[i] === "Computer wins this round") {
             messageEl.textContent = "Computer won"
             players.score2 += 1
-            eachRoundWinner.textContent = "Computer wins this round"
-            console.log(eachRoundWinner.textContent)
+            roundWinner[rollCount-1].textContent = "Computer wins this round"
+            console.log(roundWinner[i].textContent)
 
         } else if (userDice === computerDice && eachRoundWinner[i] === "Nobody wins this round") {
             messageEl.textContent = "Draw, no points"
-            eachRoundWinner.textContent = "Nobody wins this round"
-            console.log(eachRoundWinner.textContent)
+            roundWinner[rollCount-1].textContent = "Nobody wins this round"
+            console.log(roundWinner[i].textContent)
         }
 
     }
