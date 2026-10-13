@@ -121,3 +121,20 @@ button {
   font-style: italic;
 }
 
+.history-container{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1em;
+  color: red;
+}
+.round-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-card{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}

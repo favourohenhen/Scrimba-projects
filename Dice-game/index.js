@@ -17,7 +17,6 @@ let score2El = document.getElementById("score2-el")
 let messageEl = document.getElementById("message-el")
 let rollBtn = document.getElementById("rollbtn")
 
-
 player1El.textContent = players.name1
 player2El.textContent = players.name2
 score1El.textContent = "Score: "
@@ -32,7 +31,42 @@ let message = messageEl
 
 // Next up: Round history(ARRAY) & CHANGING THE UI DESIGN!!!!
 
+// Player history query selectors
+let roundNumber = document.querySelectorAll(".round-num")
+console.log(roundNumber)
+let roundDice = document.querySelectorAll(".round-dice")
+console.log(roundDice)
+let roundWinner = document.querySelectorAll(".round-winner")
+console.log(roundWinner)
 
+function numberOfRounds() {
+    let roundLabels = ["Round 1", "Round 2", "Round 3", "Round 4", "Round 5"]
+    for (let i = 0; i < roundLabels.length; i++) {
+        if (rollCount === 1 && roundLabels[i] === "Round 1") {
+            roundNumber[i].textContent = roundLabels[i]
+            console.log(roundNumber[i].textContent)
+        }
+        else if (rollCount === 2 && roundLabels[i] === "Round 2") {
+            roundNumber[i].textContent = roundLabels[i]
+            console.log(roundNumber.textContent)
+        }
+        else if (rollCount === 3 && roundLabels[i] === "Round 3") {
+            roundNumber[i].textContent = roundLabels[i]
+            console.log(roundNumber[i].textContent)
+        }
+        else if (rollCount === 4 && roundLabels[i] === "Round 4") {
+            roundNumber[i].textContent = roundLabels[i]
+            console.log(roundNumber[i].textContent)
+        }
+        else if (rollCount === 5 && roundLabels[i] === "Round 5") {
+            roundNumber[i].textContent = roundLabels[i]
+            console.log(roundNumber[i].textContent)
+        }
+    }
+}
+
+// roundNumber.textContent = roundNumber[2]
+// console.log(roundNumber.textContent)
 // GAME MAIN LOGIC
 
 function rollDice() {
@@ -61,24 +95,43 @@ function rollDice() {
         console.log("Game Over")
 
     }
+    numberOfRounds()
 }
 
 function renderGame() {
-    if (userDice > computerDice) {
-        messageEl.textContent = "You won"
-        players.score1 += 1
+    let eachRoundWinner =
+        ["You win this round",
+            "Computer wins this round",
+            "Nobody wins this round"]
 
-    } else if (computerDice > userDice) {
-        message.textContent = "Computer won"
-        players.score2 += 1
 
-    } else if (userDice === computerDice) {
-        messageEl.textContent = "Draw, no points"
+    for (let i = 0; i < eachRoundWinner.length; i++) {
+
+        if (userDice > computerDice && eachRoundWinner[i] === "You win this round") {
+            messageEl.textContent = "You won"
+            players.score1 += 1
+            eachRoundWinner.textContent = "You win this round"
+            console.log(eachRoundWinner.textContent)
+
+        } else if (computerDice > userDice && eachRoundWinner[i] === "Computer wins this round") {
+            messageEl.textContent = "Computer won"
+            players.score2 += 1
+            eachRoundWinner.textContent = "Computer wins this round"
+            console.log(eachRoundWinner.textContent)
+
+        } else if (userDice === computerDice && eachRoundWinner[i] === "Nobody wins this round") {
+            messageEl.textContent = "Draw, no points"
+            eachRoundWinner.textContent = "Nobody wins this round"
+            console.log(eachRoundWinner.textContent)
+        }
+
     }
 
 
     score1El.textContent = "Score: " + players.score1
     score2El.textContent = "Score: " + players.score2
+
+
 }
 
 function restart() {
@@ -104,7 +157,19 @@ function restart() {
 
 }
 
-
-
+let gameHistory = [
+    {
+        round: 1,
+        userDice: "userDice",
+        computerDice: 3,
+        winner: "YOU"
+    },
+    {
+        round: 2,
+        userDice: 2,
+        computerDice: 5,
+        winner: "COMPUTER"
+    }
+]
 
 
