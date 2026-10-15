@@ -25,6 +25,16 @@ computerWinner = document.getElementById("computer-winner")
 
 // Final winner modal card
 const gameModal = document.getElementById("game-modal")
+const modalBackDrop = document.getElementById("modal-backdrop")
+const Modalclose = document.getElementById("close-modal")
+const winnerEL = document.querySelector(".winner-name")
+const winnerMessage = document.querySelector(".win-message")
+const nameEl = document.querySelector(".name")
+const winner1Score = document.getElementById("score1")
+const winner2Score = document.getElementById("score2")
+const gameDraw = document.getElementById("icon")
+console.log(winnerEL)
+console.log(winnerMessage)
 // console.log(gameModal)
 
 // console.log(userCard)
@@ -60,9 +70,6 @@ function numberOfRounds() {
         if (rollCount === i + 1) {
             roundNumber[i].textContent = roundLabels[i]
             roundDice[i].textContent = diceValue[0] + " VS " + diceValue[1]
-
-            // console.log(roundDice[i].textContent)
-            // console.log(roundNumber[i].textContent)
         }
     }
 }
@@ -71,18 +78,18 @@ function winnerBorder() {
     let winner1 = "YOU 🏆"
     let winner2 = "COMPUTER 🏆"
     if (computerDice > userDice) {
-        computerCard.style.borderColor = "limegreen"
+        computerCard.classList.add("winning-card")
         player2El.textContent = winner2
-        userCard.style.borderColor = "white"
+        userCard.classList.remove("winning-card")
         player1El.textContent = "YOU"
     } else if (userDice > computerDice) {
-        userCard.style.borderColor = "limegreen"
+        userCard.classList.add("winning-card")
         player1El.textContent = winner1
-        computerCard.style.borderColor = "white"
+        computerCard.classList.remove("winning-card")
         player2El.textContent = "COMPUTER"
     } else {
-        computerCard.style.borderColor = "white"
-        userCard.style.borderColor = "white"
+        computerCard.classList.remove("winning-card")
+        userCard.classList.remove("winning-card")
         player1El.textContent = "YOU"
         player2El.textContent = "COMPUTER"
     }
@@ -118,6 +125,7 @@ function rollDice() {
     numberOfRounds()
     winnerBorder()
     winnerModal()
+
 }
 
 
@@ -132,15 +140,15 @@ function renderGame() {
     for (let i = 0; i < eachRoundWinner.length; i++) {
 
         if (userDice > computerDice && eachRoundWinner[i] === "You win this round") {
-            messageEl.textContent = "You won"
-            // messageEl.textContent = ""
+            // messageEl.textContent = "You won"
+            messageEl.textContent = ""
             players.score1 += 1
             roundWinner[rollCount - 1].textContent = "You win this round"
             // console.log(roundWinner[i].textContent)
 
         } else if (computerDice > userDice && eachRoundWinner[i] === "Computer wins this round") {
-            messageEl.textContent = "Computer won"
-            // messageEl.textContent = ""
+            // messageEl.textContent = "Computer won"
+            messageEl.textContent = ""
             players.score2 += 1
             roundWinner[rollCount - 1].textContent = "Computer wins this round"
             // console.log(roundWinner[i].textContent)
@@ -163,20 +171,35 @@ function renderGame() {
 function winnerModal() {
     if (rollCount === 5) {
         gameModal.style.display = "block"
-        if(players.score1 > players.score2){
+        modalBackDrop.style.display = "block"
+        winner1Score.textContent = players.score1
+        winner2Score.textContent = players.score2
+
+        if (players.score1 > players.score2) {
             console.log("You win 🏆")
-        }else if(players.score2 > players.score1){
+            winnerEL.textContent = "You won! 🎉"
+            winnerMessage.textContent = "Congratulations! You've won the game"
+        } else if (players.score2 > players.score1) {
             console.log("Computer win 🏆")
-        }else {
+            winnerEL.textContent = "Computer won! 🎉"
+            winnerMessage.textContent = ""
+        } else {
             console.log("it's a Draw ")
+            winnerEL.textContent = "It's a Draw "
+            gameDraw.textContent = "🤝"
+            winnerMessage.textContent = ""
         }
     } else {
         gameModal.style.display = "none"
+        modalBackDrop.style.display = "none"
     }
+
 }
 
-
-
+function closeModal() {
+    gameModal.style.display = "none"
+    modalBackDrop.style.display = "none"
+}
 
 function restart() {
     userDice = 0
@@ -210,12 +233,13 @@ function restart() {
         roundNumber[i].textContent = ""
     }
 
-    computerCard.style.borderColor = "white"
-    userCard.style.borderColor = "white"
+    userCard.classList.remove("winning-card")
+    computerCard.classList.remove("winning-card")
 
-    player2El.textContent = ""
-    player1El.textContent = ""
+    player2El.textContent = "COMPUTER"
+    player1El.textContent = "YOU"
 
-     gameModal.style.display = "none"
+    gameModal.style.display = "none"
+    modalBackDrop.style.display = "none"
 }
 
