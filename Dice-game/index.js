@@ -78,18 +78,18 @@ function winnerBorder() {
     let winner1 = "YOU 🏆"
     let winner2 = "COMPUTER 🏆"
     if (computerDice > userDice) {
-        computerCard.classList.add("winning-card")
+        computerCard.style.borderColor = "#9333ea"
         player2El.textContent = winner2
-        userCard.classList.remove("winning-card")
+        userCard.style.borderColor = "white"
         player1El.textContent = "YOU"
     } else if (userDice > computerDice) {
-        userCard.classList.add("winning-card")
+        userCard.style.borderColor = "#9333ea"
         player1El.textContent = winner1
-        computerCard.classList.remove("winning-card")
+        computerCard.style.borderColor = "white"
         player2El.textContent = "COMPUTER"
     } else {
-        computerCard.classList.remove("winning-card")
-        userCard.classList.remove("winning-card")
+        computerCard.style.borderColor = "white"
+        userCard.style.borderColor = "white"
         player1El.textContent = "YOU"
         player2El.textContent = "COMPUTER"
     }
@@ -133,30 +133,30 @@ function rollDice() {
 function renderGame() {
 
     let eachRoundWinner =
-        ["You win this round",
-            "Computer wins this round",
-            "Nobody wins this round"]
+        ["You 🏆",
+            "Computer 🏆",
+            "Draw 🤝"]
 
     for (let i = 0; i < eachRoundWinner.length; i++) {
 
-        if (userDice > computerDice && eachRoundWinner[i] === "You win this round") {
+        if (userDice > computerDice && eachRoundWinner[i] === "You 🏆") {
             // messageEl.textContent = "You won"
             messageEl.textContent = ""
             players.score1 += 1
-            roundWinner[rollCount - 1].textContent = "You win this round"
+            roundWinner[rollCount - 1].textContent = "You 🏆"
             // console.log(roundWinner[i].textContent)
 
-        } else if (computerDice > userDice && eachRoundWinner[i] === "Computer wins this round") {
+        } else if (computerDice > userDice && eachRoundWinner[i] === "Computer 🏆") {
             // messageEl.textContent = "Computer won"
             messageEl.textContent = ""
             players.score2 += 1
-            roundWinner[rollCount - 1].textContent = "Computer wins this round"
+            roundWinner[rollCount - 1].textContent = "Computer 🏆"
             // console.log(roundWinner[i].textContent)
 
-        } else if (userDice === computerDice && eachRoundWinner[i] === "Nobody wins this round") {
+        } else if (userDice === computerDice && eachRoundWinner[i] === "Draw 🤝") {
             messageEl.textContent = "Draw, no points"
             // messageEl.textContent = ""
-            roundWinner[rollCount - 1].textContent = "Nobody wins this round"
+            roundWinner[rollCount - 1].textContent = "Draw 🤝"
             // console.log(roundWinner[i].textContent)
         }
 
@@ -178,7 +178,7 @@ function winnerModal() {
         if (players.score1 > players.score2) {
             console.log("You win 🏆")
             winnerEL.textContent = "You won! 🎉"
-            winnerMessage.textContent = "Congratulations! You've won the game"
+            winnerMessage.textContent = "Congratulations!"
         } else if (players.score2 > players.score1) {
             console.log("Computer win 🏆")
             winnerEL.textContent = "Computer won! 🎉"
@@ -232,9 +232,8 @@ function restart() {
     for (let i = 0; i < roundNumber.length; i++) {
         roundNumber[i].textContent = ""
     }
-
-    userCard.classList.remove("winning-card")
-    computerCard.classList.remove("winning-card")
+    computerCard.style.borderColor = "white"
+    userCard.style.borderColor = "white"
 
     player2El.textContent = "COMPUTER"
     player1El.textContent = "YOU"
