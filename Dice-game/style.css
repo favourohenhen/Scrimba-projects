@@ -76,6 +76,7 @@ header {
   align-items: center;
   gap: 0.5em;
   border-radius: 10px;
+  padding: 1.2px 0;
 }
 .dice {
   background-color: white;
@@ -137,4 +138,10 @@ button {
   display: flex;
   gap: 1em;
   align-items: center;
+}
+#game-modal{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  margin: 20px auto;
 }

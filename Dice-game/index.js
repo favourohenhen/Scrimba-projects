@@ -7,15 +7,15 @@ let players = {
 }
 
 
-let userEl = document.getElementById("user-el")
-let computerEl = document.getElementById("computer-el")
-let countEl = document.getElementById("count-el")
-let player1El = document.getElementById("player1-el")
-let player2El = document.getElementById("player2-el")
-let score1El = document.getElementById("score1-el")
-let score2El = document.getElementById("score2-el")
-let messageEl = document.getElementById("message-el")
-let rollBtn = document.getElementById("rollbtn")
+const userEl = document.getElementById("user-el")
+const computerEl = document.getElementById("computer-el")
+const countEl = document.getElementById("count-el")
+const player1El = document.getElementById("player1-el")
+const player2El = document.getElementById("player2-el")
+const score1El = document.getElementById("score1-el")
+const score2El = document.getElementById("score2-el")
+const messageEl = document.getElementById("message-el")
+const rollBtn = document.getElementById("rollbtn")
 
 // Winner border hightlight
 userCard = document.getElementById("user-card")
@@ -40,11 +40,11 @@ let message = messageEl
 
 
 // Player history query selectors
-let roundNumber = document.querySelectorAll(".round-num")
+const roundNumber = document.querySelectorAll(".round-num")
 console.log(roundNumber)
-let roundDice = document.querySelectorAll(".round-dice")
+const roundDice = document.querySelectorAll(".round-dice")
 console.log(roundDice)
-let roundWinner = document.querySelectorAll(".round-winner")
+const roundWinner = document.querySelectorAll(".round-winner")
 console.log(roundWinner)
 
 
@@ -62,22 +62,25 @@ function numberOfRounds() {
         }
     }
 }
+
 function winnerBorder() {
+    let winner1 = "YOU 🏆"
+    let winner2 = "COMPUTER 🏆"
     if (computerDice > userDice) {
         computerCard.style.borderColor = "limegreen"
-        computerWinner.textContent = "Winner! 🏆"
+        player2El.textContent = winner2
         userCard.style.borderColor = "white"
-        userWinner.textContent = ""
+        player1El.textContent = "YOU"
     } else if (userDice > computerDice) {
         userCard.style.borderColor = "limegreen"
-        userWinner.textContent = "Winner! 🏆"
+        player1El.textContent = winner1
         computerCard.style.borderColor = "white"
-        computerWinner.textContent = ""
+        player2El.textContent = "COMPUTER"
     } else {
         computerCard.style.borderColor = "white"
         userCard.style.borderColor = "white"
-        userWinner.textContent = ""
-        computerWinner.textContent = ""
+        player1El.textContent = "YOU"
+        player2El.textContent = "COMPUTER"
     }
 }
 
@@ -125,18 +128,21 @@ function renderGame() {
 
         if (userDice > computerDice && eachRoundWinner[i] === "You win this round") {
             messageEl.textContent = "You won"
+            // messageEl.textContent = ""
             players.score1 += 1
             roundWinner[rollCount - 1].textContent = "You win this round"
             // console.log(roundWinner[i].textContent)
 
         } else if (computerDice > userDice && eachRoundWinner[i] === "Computer wins this round") {
             messageEl.textContent = "Computer won"
+            // messageEl.textContent = ""
             players.score2 += 1
             roundWinner[rollCount - 1].textContent = "Computer wins this round"
             // console.log(roundWinner[i].textContent)
 
         } else if (userDice === computerDice && eachRoundWinner[i] === "Nobody wins this round") {
             messageEl.textContent = "Draw, no points"
+            // messageEl.textContent = ""
             roundWinner[rollCount - 1].textContent = "Nobody wins this round"
             // console.log(roundWinner[i].textContent)
         }
@@ -185,7 +191,7 @@ function restart() {
     computerCard.style.borderColor = "white"
     userCard.style.borderColor = "white"
 
-    userWinner.textContent = ""
-    computerWinner.textContent = ""
+    player2El.textContent = ""
+    player1El.textContent = ""
 }
 
