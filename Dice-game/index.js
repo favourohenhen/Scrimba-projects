@@ -23,8 +23,12 @@ computerCard = document.getElementById("computer-card")
 userWinner = document.getElementById("user-winner")
 computerWinner = document.getElementById("computer-winner")
 
-console.log(userCard)
-console.log(computerCard)
+// Final winner modal card
+const gameModal = document.getElementById("game-modal")
+// console.log(gameModal)
+
+// console.log(userCard)
+// console.log(computerCard)
 
 player1El.textContent = players.name1
 player2El.textContent = players.name2
@@ -41,11 +45,11 @@ let message = messageEl
 
 // Player history query selectors
 const roundNumber = document.querySelectorAll(".round-num")
-console.log(roundNumber)
+// console.log(roundNumber)
 const roundDice = document.querySelectorAll(".round-dice")
-console.log(roundDice)
+// console.log(roundDice)
 const roundWinner = document.querySelectorAll(".round-winner")
-console.log(roundWinner)
+// console.log(roundWinner)
 
 
 function numberOfRounds() {
@@ -113,6 +117,7 @@ function rollDice() {
     }
     numberOfRounds()
     winnerBorder()
+    winnerModal()
 }
 
 
@@ -155,6 +160,23 @@ function renderGame() {
 
 
 }
+function winnerModal() {
+    if (rollCount === 5) {
+        gameModal.style.display = "block"
+        if(players.score1 > players.score2){
+            console.log("You win 🏆")
+        }else if(players.score2 > players.score1){
+            console.log("Computer win 🏆")
+        }else {
+            console.log("it's a Draw ")
+        }
+    } else {
+        gameModal.style.display = "none"
+    }
+}
+
+
+
 
 function restart() {
     userDice = 0
@@ -193,5 +215,7 @@ function restart() {
 
     player2El.textContent = ""
     player1El.textContent = ""
+
+     gameModal.style.display = "none"
 }
 

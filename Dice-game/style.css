@@ -30,13 +30,13 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 1.59em;
-  padding: 0.8em;
-  background-color: rgba(0, 0, 0, 0.468);
+  padding:  0.8em;
+  background-color: #121325;
   border: 5px white solid;
   color: white;
   border-radius: 12px;
   overflow: hidden;
-  
+ 
 }
 h1 {
   color: var(--head-text);
@@ -76,7 +76,7 @@ header {
   align-items: center;
   gap: 0.5em;
   border-radius: 10px;
-  padding: 1.2px 0;
+ 
 }
 .dice {
   background-color: white;
@@ -122,26 +122,49 @@ button {
   font-style: italic;
 }
 
-.history-container{
+.history-container {
   display: flex;
   flex-direction: column;
   align-content: center;
   gap: 1em;
   color: white;
+  padding-top: 1.3px;
+  
 }
-.round-card{
+.round-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.left-card{
+.left-card {
   display: flex;
   gap: 1em;
   align-items: center;
 }
-#game-modal{
-  width: 200px;
-  height: 200px;
+#game-modal {
+  width: 400px;
+  height: 250px;
   background-color: white;
-  margin: 20px auto;
+  text-align: center;
+  padding: 1em 1.5em;
+  display: none;
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(41%, -80%);
+}
+
+.winner-stats {
+  display: flex;
+  gap: 1.5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.name {
+  padding-bottom: 0.3em;
+}
+.dash {
+  text-align: center;
 }

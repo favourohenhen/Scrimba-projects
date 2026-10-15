@@ -92,9 +92,24 @@
         </section>
       </section>
     </main>
-<div id="game-modal">
-
-</div>
+<section id="game-modal">
+  <span class="win-icon">🏆</span>
+  <h2 class="winner-name">You win! 🎉</h2>
+  <p class="win-message">Congratulations! You've won the game</p>
+  <div class="winner-stats">
+    <div class="player1-score">
+      <p class="name">You</p>
+      <p class="score">3</p>
+    </div>
+    <p class="dash"> - </p>
+    <div class="player2-score">
+      <p class="name">Computer</p>
+      <p class="score">3</p>
+    </div>
+   
+  </div>
+ <button type="button" onclick="restart()">Play again</button>
+</section>
     <script src="index.js"></script>
   </body>
 </html>
