@@ -119,7 +119,7 @@ function rollDice() {
         rollBtn.disabled = rollCount >= 5
 
     } else {
-        console.log("Game Over")
+        console.log("Game over!")
 
     }
     numberOfRounds()
@@ -140,21 +140,17 @@ function renderGame() {
     for (let i = 0; i < eachRoundWinner.length; i++) {
 
         if (userDice > computerDice && eachRoundWinner[i] === "You 🏆") {
-            // messageEl.textContent = "You won"
             messageEl.textContent = ""
             players.score1 += 1
             roundWinner[rollCount - 1].textContent = "You 🏆"
-            // console.log(roundWinner[i].textContent)
 
         } else if (computerDice > userDice && eachRoundWinner[i] === "Computer 🏆") {
-            // messageEl.textContent = "Computer won"
             messageEl.textContent = ""
             players.score2 += 1
             roundWinner[rollCount - 1].textContent = "Computer 🏆"
-            // console.log(roundWinner[i].textContent)
 
         } else if (userDice === computerDice && eachRoundWinner[i] === "Draw 🤝") {
-            messageEl.textContent = "Draw, no points"
+            messageEl.textContent = "It's a draw! No points awarded"
             // messageEl.textContent = ""
             roundWinner[rollCount - 1].textContent = "Draw 🤝"
             // console.log(roundWinner[i].textContent)
@@ -176,16 +172,13 @@ function winnerModal() {
         winner2Score.textContent = players.score2
 
         if (players.score1 > players.score2) {
-            console.log("You win 🏆")
-            winnerEL.textContent = "You won! 🎉"
+            winnerEL.textContent = "You Win! 🎉"
             winnerMessage.textContent = "Congratulations!"
         } else if (players.score2 > players.score1) {
-            console.log("Computer win 🏆")
-            winnerEL.textContent = "Computer won! 🎉"
+            winnerEL.textContent = "Computer Wins! 🎉"
             winnerMessage.textContent = ""
         } else {
-            console.log("it's a Draw ")
-            winnerEL.textContent = "It's a Draw "
+            winnerEL.textContent = "It's a draw! "
             gameDraw.textContent = "🤝"
             winnerMessage.textContent = ""
         }
@@ -212,7 +205,7 @@ function restart() {
     countEl.textContent = rollCount
 
     rollBtn.disabled = false
-    messageEl.textContent = "READY ?"
+    messageEl.textContent = "READY?"
     // console.log(messageEl.textContent)
 
     // Resetting the scores
@@ -240,5 +233,7 @@ function restart() {
 
     gameModal.style.display = "none"
     modalBackDrop.style.display = "none"
+
+    gameDraw.textContent = "🏆"
 }
 
