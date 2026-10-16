@@ -172,10 +172,10 @@ function winnerModal() {
         winner2Score.textContent = players.score2
 
         if (players.score1 > players.score2) {
-            winnerEL.textContent = "You Win! 🎉"
+            winnerEL.textContent = "You Won! 🎉"
             winnerMessage.textContent = "Congratulations!"
         } else if (players.score2 > players.score1) {
-            winnerEL.textContent = "Computer Wins! 🎉"
+            winnerEL.textContent = "Computer Won! 🎉"
             winnerMessage.textContent = ""
         } else {
             winnerEL.textContent = "It's a draw! "
